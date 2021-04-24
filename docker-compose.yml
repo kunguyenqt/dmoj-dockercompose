@@ -3,7 +3,6 @@ version: "3.1"
 services:
   site:
     build: ./build/site
-    #   image: schoj/site
     container_name: oj-site
     restart: always
     environment:
@@ -24,7 +23,6 @@ services:
 
   judge:
     build: ./build/judge
-    #   image: schoj/judge
     container_name: oj-judger
     privileged: true
     restart: always
@@ -36,9 +34,12 @@ services:
 
   db:
     image: mariadb:10.3.10
+    restart: always
     environment:
-      - MYSQL_ROOT_PASSWORD=dmoj
-      - MYSQL_DATABASE=dmoj
+      - MYSQL_ROOT_PASSWORD=ispace@240
+      - MYSQL_DATABASE=isoj
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=ispace@240
     volumes:
       - $PWD/data/database:/var/lib/mysql
     command: --character-set-server=utf8mb4 --collation-server=utf8mb4_general_ci

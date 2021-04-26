@@ -7,6 +7,7 @@ services:
     restart: always
     environment:
       - WAIT_HOSTS=db:3306
+    env_file: 
       - env/site.env
       - env/mysql.env
     ports:
@@ -38,7 +39,7 @@ services:
   db:
     image: mariadb:10.3.10
     restart: always
-    environment: 
+    env_file: 
       - env/mysql.env
     volumes:
       - $PWD/data/database:/var/lib/mysql

@@ -5,5 +5,4 @@ docker-compose exec $COMPOSE_EXEC_FLAGS site /bin/bash -c "\
     bash ./make_style.sh && \
     echo yes | python3 manage.py collectstatic && \
     python3 manage.py compilemessages && \
-    python3 manage.py compilejsi18n && \
-    mv /site /osite
+    python3 manage.py compilejsi18n"

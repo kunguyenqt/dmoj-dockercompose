@@ -16,7 +16,7 @@ $ cd dmoj-dockercompose
 $ git submodule update --init --recursive
 ```
 
-Configure the environment variables in the files in `judge1.env`. In particular, set the MYSQL passwords in `docker-compose.yml`, and the host and secret key in `site/local_setting`. Also, configure the `server_name` directive in `site/nginx.conf`.
+Configure the environment variables in the files in `env/site.env`, `env/judge1.env`, `env/mysql.env`. In particular. Also, configure the `server_name` directive in `site/nginx.conf`.
 
 Next, build the images:
 ```sh

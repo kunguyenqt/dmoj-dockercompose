@@ -7,6 +7,8 @@ services:
     restart: always
     environment:
       - WAIT_HOSTS=db:3306
+      - env/site.env
+      - env/mysql.env
     ports:
       - 80:80
       - 443:443
@@ -30,16 +32,12 @@ services:
       - site
     volumes:
       - $PWD/data/problems:/problems
-    env_file: judge1.env
+    env_file: env/judge1.env
 
   db:
     image: mariadb:10.3.10
     restart: always
-    environment:
-      - MYSQL_ROOT_PASSWORD=ispace@240
-      - MYSQL_DATABASE=isoj
-      - MYSQL_USER=root
-      - MYSQL_PASSWORD=ispace@240
+    environment: env/mysql.env
     volumes:
       - $PWD/data/database:/var/lib/mysql
     command: --character-set-server=utf8mb4 --collation-server=utf8mb4_general_ci

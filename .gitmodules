@@ -4,3 +4,6 @@
 [submodule "build/judge"]
 	path = build/judge
 	url = https://github.com/kunguyenqt/dmoj-judge.git
+[submodule "data/site"]
+	path = data/site
+	url = https://github.com/kunguyenqt/iSOJ.git

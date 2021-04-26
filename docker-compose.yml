@@ -32,12 +32,14 @@ services:
       - site
     volumes:
       - $PWD/data/problems:/problems
-    env_file: env/judge1.env
+    env_file:
+      - env/judge1.env
 
   db:
     image: mariadb:10.3.10
     restart: always
-    environment: env/mysql.env
+    environment: 
+      - env/mysql.env
     volumes:
       - $PWD/data/database:/var/lib/mysql
     command: --character-set-server=utf8mb4 --collation-server=utf8mb4_general_ci

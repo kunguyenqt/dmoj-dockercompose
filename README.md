@@ -1,9 +1,9 @@
 DMOJ Docker
 =====
 
-This repository contains the Docker files to run a clone of the [DMOJ site](https://github.com/DMOJ/online-judge). It configures some additional services, such as mathoid and texoid.
+This repository contains the Docker files to run a clone of the [VNOI](https://github.com/VNOI-Admin/OJ) base on [DMOJ site](https://github.com/DMOJ/online-judge). It configures some additional services, such as mathoid and texoid.
 
-This is use some scritps and config from [Ninjaclasher](https://github.com/Ninjaclasher/dmoj-docker)
+This is using some scritps and config from [Ninjaclasher](https://github.com/Ninjaclasher/dmoj-docker)
 
 ## Installation
 

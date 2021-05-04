@@ -1,6 +1,0 @@
-[submodule "build/site"]
-	path = build/site
-	url = https://github.com/kunguyenqt/dmoj-site.git
-[submodule "build/judge"]
-	path = build/judge
-	url = https://github.com/kunguyenqt/dmoj-judge.git

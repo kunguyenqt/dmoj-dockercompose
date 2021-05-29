@@ -18,6 +18,7 @@ services:
       - 15100:15100
       - 15101:15101
       - 15102:15102
+      - 8000:8000
     volumes:
       - $PWD/data/site:/site
       - $PWD/data/problems:/problems
@@ -44,3 +45,18 @@ services:
     volumes:
       - $PWD/data/database:/var/lib/mysql
     command: --character-set-server=utf8mb4 --collation-server=utf8mb4_general_ci
+
+  # redis:
+  #   image: redis:alpine
+  #   restart: always
+  
+  # celery:
+  #   build: ./build/celery/
+  #   restart: unless-stopped
+  #   volumes:
+  #     - datacache:/datacache/
+  #     - $PWD/data/logs/:/logs/
+  #     - $PWD/data/site/:/site/
+  #   working_dir: /site/
+  #   env_file: [environment/mysql.env, environment/site.env]
+  #   depends_on: [base, db, redis]

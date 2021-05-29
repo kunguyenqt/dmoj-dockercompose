@@ -8,7 +8,7 @@ RUN mkdir /site /uwsgi
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && \
-    apt-get install -y nano debconf-utils default-libmysqlclient-dev gnupg wget git gcc g++ make python-dev libxml2-dev libxslt1-dev zlib1g-dev gettext curl wget openssl vim supervisor mycli python3-pip
+    apt-get install -y nano debconf-utils default-libmysqlclient-dev gnupg wget git gcc g++ make python-dev libxml2-dev libxslt1-dev zlib1g-dev gettext curl wget openssl vim supervisor mycli python3-pip redis-server
 RUN echo 'deb https://deb.nodesource.com/node_12.x/ buster main' >> /etc/apt/sources.list && \
     echo 'deb http://nginx.org/packages/debian/ buster nginx' >> /etc/apt/sources.list && \
     wget -qO - https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add - && \
@@ -27,7 +27,7 @@ RUN git submodule init && \
     git config -f .gitmodules submodule.resources/pagedown.shallow true && \
     git submodule update
 RUN pip3 install -r requirements.txt && \
-    pip3 install mysqlclient django_select2 websocket-client pymysql uWSGI
+    pip3 install mysqlclient django_select2 websocket-client pymysql uWSGI django-redis
 RUN npm install qu ws simplesets
 COPY local_settings.py /site/dmoj
 COPY config.js /site/websocket
@@ -57,3 +57,4 @@ EXPOSE 15101
 EXPOSE 15102
 EXPOSE 9998
 EXPOSE 9999
+EXPOSE 8000

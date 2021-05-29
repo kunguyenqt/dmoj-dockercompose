@@ -39,6 +39,13 @@ CACHES = {
     }
 }
 
+# CACHES = {
+#     'default': {
+#         'BACKEND': 'django_redis.cache.RedisCache',
+#         'LOCATION': 'redis://redis:6379/1',
+#     }
+# }
+
 # Your database credentials. Only MySQL is supported by DMOJ.
 # Documentation: <https://docs.djangoproject.com/en/1.9/ref/databases/>
 DATABASES = {
@@ -199,10 +206,10 @@ EVENT_DAEMON_POLL = '/channels/'
 ## CDN control.
 # Base URL for a copy of ace editor.
 # Should contain ace.js, along with mode-*.js.
-ACE_URL = 'https://cdnjs.loli.net/ajax/libs/ace/1.2.3/'
-JQUERY_JS = 'https://cdnjs.loli.net/ajax/libs/jquery/2.2.4/jquery.min.js'
-SELECT2_JS_URL = 'https://cdnjs.loli.net/ajax/libs/select2/4.0.3/js/select2.min.js'
-SELECT2_CSS_URL = 'https://cdnjs.loli.net/ajax/libs/select2/4.0.3/css/select2.min.css'
+ACE_URL = 'https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.3/'
+JQUERY_JS = 'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js'
+SELECT2_JS_URL = 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js'
+SELECT2_CSS_URL = 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css'
 
 # A map of Earth in Equirectangular projection, for timezone selection.
 # Please try not to hotlink this poor site.
@@ -318,4 +325,8 @@ LOGGING = {
 # You may add whatever django configuration you would like here.
 # Do try to keep it separate so you can quickly patch in new settings.
 
+# CELERY_BROKER_URL = 'redis://redis:6379/0'
+# CELERY_RESULT_BACKEND = 'redis://redis:6379/0'
+
 REGISTRATION_OPEN = False
+DMOJ_RATING_COLORS = True
